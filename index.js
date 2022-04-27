@@ -16,7 +16,6 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-
 // REQUISITO 02
 app.get('/talker/:id', (req, res) => {
   const { id } = req.params;
