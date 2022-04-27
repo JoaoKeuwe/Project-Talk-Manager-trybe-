@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const randomToken = require('random-token');
-/* const { validationEmail, validationPassword } = require('./validationEmail'); */
+const validationEmail = require('./validationEmail');
 
 const app = express();
 app.use(bodyParser.json());
@@ -35,7 +35,7 @@ app.get('/talker', (req, res) => {
   });
 
   // REQUISITO 03
-  app.post('/login', /*  validationEmail, validationPassword, */ (req, res) => {
+  app.post('/login', validationEmail, (req, res) => {
     const token = randomToken(16);
     return res.status(200).json({ token });
   });
