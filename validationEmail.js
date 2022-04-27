@@ -19,11 +19,4 @@
     next();
   };
 
-/*   const validationPassword = (req, res, next) => {
-    const { password } = req.body;
-    console.log(req.body);
-    
-    next();
-  };
- */
   module.exports = validationEmail;
