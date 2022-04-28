@@ -30,7 +30,6 @@ app.delete('/talker/:id', validation, (req, res) => {
   const talker = fs.readFileSync(pathTalker, 'utf8');
   const talkers = JSON.parse(talker);
   const index = talkers.filter((i) => i.id !== Number(id));
-  console.log(index);
   fs.writeFileSync(pathTalker, JSON.stringify(index, null, 2), 'utf8');
   return res.status(204).end();
 });
@@ -79,8 +78,8 @@ app.get('/talker/:id', (req, res) => {
     validationName,
     validationAge,
     validationTalk,
-    validationRate,
     validationWatched,
+    validationRate,
       (req, res) => {
       const fsText = fs.readFileSync(pathTalker, 'utf8');
       const talkers = JSON.parse(fsText);
