@@ -47,12 +47,12 @@ app.get('/talker/:id', (req, res) => {
 
   // REQUISITO 06
   app.put('/talker/:id', 
-  /* validation,
-   validationName,
+  validation,
+  validationName,
   validationAge,
   validationTalk,
   validationRate,
-  validationWatched, */
+  validationWatched,
   (req, res) => {
     const { id } = req.params;
     const fsText = fs.readFileSync(pathTalker, 'utf8');
@@ -63,7 +63,7 @@ app.get('/talker/:id', (req, res) => {
       id: takeId[index].id,
     };
     takeId[index] = object;
-    fs.writeFileSync(pathTalker, JSON.stringify(object, null, 2), 'utf8');
+    fs.writeFileSync(pathTalker, JSON.stringify(takeId, null, 2), 'utf8');
      res.status(200).json(object);
   });
   
