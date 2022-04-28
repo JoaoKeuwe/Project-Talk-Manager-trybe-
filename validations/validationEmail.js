@@ -1,6 +1,5 @@
  const validationEmail = (req, res, next) => {
     const { email, password } = req.body;
-    console.log(req.body);
     if (email === undefined) {
       res.status(400).json({ message: 'O campo "email" é obrigatório' });
     }
@@ -9,7 +8,6 @@
       }
     const regex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const userEmail = regex.test(email);
-    console.log(userEmail);
     if (userEmail === false) {
       res.status(400).json({ message: 'O "email" deve ter o formato "email@email.com"' });
     }

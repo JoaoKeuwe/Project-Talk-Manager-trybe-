@@ -39,9 +39,7 @@ app.get('/talker/:id', (req, res) => {
   const { id } = req.params;
   const fsText = fs.readFileSync(pathTalker, 'utf8');
   const filterTalkerId = JSON.parse(fsText).find((talker) => talker.id === Number(id));
-  console.log(filterTalkerId);
     if (filterTalkerId === undefined) {
-      console.log('404');
       return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
     }
     res.status(200).json(filterTalkerId);
@@ -50,7 +48,6 @@ app.get('/talker/:id', (req, res) => {
   // REQUISITO 01
   app.get('/talker', (req, res) => {
     const fsText = fs.readFileSync(pathTalker, 'utf8');
-    console.log('kkk');
     res.status(200).json(JSON.parse(fsText));
   });
 
@@ -59,9 +56,9 @@ app.get('/talker/:id', (req, res) => {
     validation,
     validationName,
     validationAge,
-    validationWatched,
-    validationRate,
     validationTalk,
+    validationRate,
+    validationWatched,
       (req, res) => {
       const fsText = fs.readFileSync(pathTalker, 'utf8');
       const talkers = JSON.parse(fsText);
