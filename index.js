@@ -50,9 +50,9 @@ app.get('/talker/:id', (req, res) => {
   validation,
   validationName,
   validationAge,
-  validationRate,
   validationTalk,
   validationWatched,
+  validationRate,
   (req, res) => {
     const { id } = req.params;
     const fsText = fs.readFileSync(pathTalker, 'utf8');
