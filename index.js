@@ -24,7 +24,7 @@ app.get('/', (_request, response) => {
 });
 
 // REQUISITO 07
-/* app.delete('/talker/:id', validation, (req, res) => {
+app.delete('/talker/:id', validation, (req, res) => {
   console.log('chegou');
   const { id } = req.params;
   const talker = fs.readFileSync(pathTalker, 'utf8');
@@ -33,7 +33,7 @@ app.get('/', (_request, response) => {
   console.log(index);
   fs.writeFileSync(pathTalker, JSON.stringify(index, null, 2), 'utf8');
   return res.status(204).end();
-}); */
+});
 // REQUISITO 02
 app.get('/talker/:id', (req, res) => {
   const { id } = req.params;
