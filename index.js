@@ -60,7 +60,7 @@ app.get('/talker/:id', (req, res) => {
     const index = takeId.findIndex((talker) => talker.id === Number(id));
     const object = {
       ...req.body,
-      id: takeId[index].id,
+     id: Number(id),
     };
     takeId[index] = object;
     fs.writeFileSync(pathTalker, JSON.stringify(takeId, null, 2), 'utf8');
