@@ -44,6 +44,28 @@ app.get('/talker/:id', (req, res) => {
     }
     res.status(200).json(filterTalkerId);
   });
+
+  // REQUISITO 06
+  app.put('/talker/:id', 
+  /* validation,
+   validationName,
+  validationAge,
+  validationTalk,
+  validationRate,
+  validationWatched, */
+  (req, res) => {
+    const { id } = req.params;
+    const fsText = fs.readFileSync(pathTalker, 'utf8');
+    const takeId = JSON.parse(fsText);
+    const index = takeId.findIndex((talker) => talker.id === Number(id));
+    const object = {
+      ...req.body,
+      id: takeId[index].id,
+    };
+    takeId[index] = object;
+    fs.writeFileSync(pathTalker, JSON.stringify(object, null, 2), 'utf8');
+     res.status(200).json(object);
+  });
   
   // REQUISITO 01
   app.get('/talker', (req, res) => {
